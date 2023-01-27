@@ -238,13 +238,13 @@ var blackIcon = new L.Icon({
 		zoom: 13,
 		layers: [openStreetStandard, sillyObjects]
 	});
+
+	map.on('overlayadd', onMapLayerChange);
 	
 	function onMapLayerChange(e) {
 	    console.log(e);
-		map.fitBounds(e.layer);
+		map.fitBounds(e.layer.getBounds());
 	}
-
-	map.on('overlayadd', onMapLayerChange);
 	
 
 //	const map = L.map('map').setView([51.505, -0.09], 13);
@@ -267,7 +267,7 @@ var blackIcon = new L.Icon({
 		}
 	});
 
-	var Counties = L.layerGroup([UKCounties]);
+	var Counties = L.featureGroup([UKCounties]);
 
 // now add the chapter 1 data
 	var Chapter1Data = {
@@ -295,7 +295,7 @@ var blackIcon = new L.Icon({
 		}
 	});
 
-	var Chapter1 = L.layerGroup([Chapter1Points]);
+	var Chapter1 = L.featureGroup([Chapter1Points]);
 
 // now add the chapters 2-3 data
 	var Chapter_2_3_Data = {
@@ -321,7 +321,7 @@ var blackIcon = new L.Icon({
 		}
 	});
 
-	var Chapter_2_3 = L.layerGroup([Chapter_2_3_Points]);
+	var Chapter_2_3 = L.featureGroup([Chapter_2_3_Points]);
 	
 // now add the chapters 4 data
 	var Chapter4Data = {
@@ -346,7 +346,7 @@ var blackIcon = new L.Icon({
 		}
 	});
 
-	var Chapter4 = L.layerGroup([Chapter4Points]);
+	var Chapter4 = L.featureGroup([Chapter4Points]);
 	
 /*
 	var geojson = L.GeoJSON.AJAX("Chapter_1.geojson");
