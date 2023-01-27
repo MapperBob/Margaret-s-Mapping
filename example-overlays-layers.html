@@ -24,7 +24,7 @@
 		}
 		.leaflet-container {
 			height: 1000px;
-			width: 1333px;
+			width: 1500px;
 			max-width: 100%;
 			max-height: 100%;
 		}
@@ -37,7 +37,7 @@
 <body>
 <!--<button class="Print-Map">Print Map</button> -->
 
-<div id="map" style="width: 1333px; height: 1000px;"></div>
+<div id="map" style="width: 1500px; height: 1000px;"></div>
 
 <div id="rose">
 </div>
@@ -431,7 +431,6 @@ var blackIcon = new L.Icon({
 
 // now add the Chapter 7 data
 
-// first set up the point data:
 	var Chapter7Data = {
 		"type": "FeatureCollection",
 		"name": "Memoirs Chapters 2-5- Chapter 7",
@@ -454,6 +453,64 @@ var blackIcon = new L.Icon({
 
 	var Chapter7 = L.featureGroup([Chapter7Points]);
 
+// now add the Chapter 8 data
+
+	var Chapter8Data = {
+		"type": "FeatureCollection",
+		"name": "Memoirs Chapters 2-5- Chapter 8",
+		"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+		"features": [
+			{ "type": "Feature", "properties": { "WKT": "POINT (-0.3059501 51.5500751)", "Category": "Margaret's UK Homes", "name": "Wembley Hospital", "description": "Wembley Hospital", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -0.3059501, 51.5500751 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-0.1931042 51.4958403)", "Category": "Margaret's UK Homes", "name": "Lexham Gardens", "description": "Lexham Gardens", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -0.1931042, 51.4958403 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-0.1913425 51.5619228)", "Category": "Margaret's UK Homes", "name": "Maida Vale", "description": "Maida Vale", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -0.1913425, 51.5619228 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-0.1742676 51.5175558)", "Category": "Margaret's UK Homes", "name": "St. Mary's Hospital", "description": "St Mary's Hospital", "Annotation": "Paddington", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -0.1742676, 51.5175558 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-0.1705546 51.48920380000001)", "Category": "Margaret's UK Homes", "name": "Royal Brompton Hospital", "description": "Royal Brompton Hospital", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -0.1705546, 51.489203800000013 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-0.1219024 51.5221725)", "Category": "Margaret's UK Homes", "name": "Nat'l Neurology Hosp.", "description": "National Hospital", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -0.1219024, 51.5221725 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-5.713174599999999 50.0657041)", "Category": "", "name": "Land's End", "description": "", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -5.7131746, 50.0657041 ] } }
+		]
+	};
+
+ 	var Chapter8Points = L.geoJSON(Chapter8Data, {
+		onEachFeature: function (feature, layer) {
+				layer.setIcon(greyIcon);
+				layer.bindTooltip(feature.properties.name,{
+									permanent: true,
+									direction: 'auto',
+									opacity: 0.9}).openTooltip();
+		}
+	});
+
+	var Chapter8 = L.featureGroup([Chapter8Points]);
+
+// now add the Chapter 9 data
+
+	var Chapter9Data = {
+			"type": "FeatureCollection",
+			"name": "Memoirs Chapters 2-5- 2023-01-26_Chapter 9",
+			"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+			"features": [
+				{ "type": "Feature", "properties": { "WKT": "POINT (-63.5783465 44.6559298)", "name": "Halifax", "description": "Halifax - Pier 21" }, "geometry": { "type": "Point", "coordinates": [ -63.5783465, 44.6559298 ] } },
+				{ "type": "Feature", "properties": { "WKT": "POINT (-1.4066919 50.896225)", "name": "Southampton", "description": "Southampton" }, "geometry": { "type": "Point", "coordinates": [ -1.4066919, 50.896225 ] } },
+				{ "type": "Feature", "properties": { "WKT": "POINT (-73.56739189999999 45.5018869)", "name": "Montreal", "description": "" }, "geometry": { "type": "Point", "coordinates": [ -73.5673919, 45.5018869 ] } },
+				{ "type": "Feature", "properties": { "WKT": "POINT (-116.4040142 51.43586759999999)", "name": "CPR Spiral Tunnels", "description": "" }, "geometry": { "type": "Point", "coordinates": [ -116.4040142, 51.435867599999987 ] } },
+				{ "type": "Feature", "properties": { "WKT": "POINT (-123.11177 49.28568)", "name": "CPR Station - West Cordova Street", "description": "" }, "geometry": { "type": "Point", "coordinates": [ -123.11177, 49.28568 ] } },
+				{ "type": "Feature", "properties": { "WKT": "POINT (-123.1391766 49.2617426)", "name": "West 11th Ave at Granville St", "description": "" }, "geometry": { "type": "Point", "coordinates": [ -123.1391766, 49.2617426 ] } },
+				{ "type": "Feature", "properties": { "WKT": "POINT (-97.1335833 49.8893855)", "name": "CPR Station - Winnipeg", "description": "" }, "geometry": { "type": "Point", "coordinates": [ -97.1335833, 49.8893855 ] } }
+			]
+	};
+
+ 	var Chapter9Points = L.geoJSON(Chapter9Data, {
+		onEachFeature: function (feature, layer) {
+				layer.setIcon(yellowIcon);
+				layer.bindTooltip(feature.properties.name,{
+									permanent: true,
+									direction: 'auto',
+									opacity: 0.9}).openTooltip();
+		}
+	});
+
+	var Chapter9 = L.featureGroup([Chapter9Points]);
+
 /*
 */
 /*
@@ -470,7 +527,9 @@ var blackIcon = new L.Icon({
 		"Margaret's Life- Chapter 4": Chapter4,
 		"Margaret's Life- Chapter 5": Chapter5,
 		"Margaret's Life- Chapter 6": Chapter6,
-		"Margaret's Life- Chapter 7": Chapter7
+		"Margaret's Life- Chapter 7": Chapter7,
+		"Margaret's Life- Chapter 8": Chapter8,
+		"Margaret's Life- Chapter 9": Chapter9
 /*
 */
 	};
