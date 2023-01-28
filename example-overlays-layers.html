@@ -23,24 +23,21 @@
 			margin: 0;
 		}
 		.leaflet-container {
-			height: 1000px;
-			width: 1500px;
+			height: 750px;
+			width: 1200px;
 			max-width: 100%;
 			max-height: 100%;
 		}
 	</style>
-
+<!--
 	<link rel="stylesheet" href="dist/L.Control.Rose.css" />
 	<script src="dist/L.Control.Rose.js"></script>
-	
+-->
 </head>
 <body>
-<!--<button class="Print-Map">Print Map</button> -->
+<button class="Print-Map">Print Map</button>
 
-<div id="map" style="width: 1500px; height: 1000px;"></div>
-
-<div id="rose">
-</div>
+<div id="map" style="width: 1200px; height: 750px;"></div>
 
 <script>
 
@@ -557,11 +554,11 @@ var blackIcon = new L.Icon({
 		position: 'bottomleft',
 		updateWhenIdle: true}).addTo(map);
 
-/* // Print the map
+// Print the map
 	$('.Print-Map').click(function(){
 		window.print();
 	})
-*/
+
 	var browserControl = L.control.browserPrint({
 		position: 'bottomright',
 		documentTitle: 'Map of places in Margarets Life',
