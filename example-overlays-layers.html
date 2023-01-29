@@ -23,8 +23,8 @@
 			margin: 0;
 		}
 		.leaflet-container {
-			height: 720px;
-			width: 1000px;
+			height: 1000px;
+			width: 1500px;
 			max-width: 100%;
 			max-height: 100%;
 		}
@@ -35,9 +35,9 @@
 	
 </head>
 <body>
-<button class="Print-Map">Print Map</button>
+<!--<button class="Print-Map">Print Map</button> -->
 
-<div id="map" style="width: 1000px; height: 720px;"></div>
+<div id="map" style="width: 1500px; height: 1000px;"></div>
 
 <div id="rose">
 </div>
@@ -171,17 +171,17 @@ var blackIcon = new L.Icon({
 // now set up the vector layers that can be turned on or off
 //
 	var marker = L.marker([51.5005, -0.09], {icon: violetIcon}).bindPopup("<b>Hello world!</b><br>I am a popup."),
-	circle = L.circle([51.508, -0.11], {
-		color: 'red',
-		fillColor: '#f03',
-		fillOpacity: 0.5,
-		radius: 500
-	}).bindPopup("I am a circle."),
-	polygon = L.polygon([
-		[51.509, -0.08],
-		[51.503, -0.06],
-		[51.51, -0.047]
-	]).bindPopup("I am a polygon.");
+		circle = L.circle([51.508, -0.11], {
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.5,
+			radius: 500
+		}).bindPopup("I am a circle."),
+		polygon = L.polygon([
+			[51.509, -0.08],
+			[51.503, -0.06],
+			[51.51, -0.047]
+		]).bindPopup("I am a polygon.");
 
 // Now add a label to the marker
 	marker.bindTooltip("Empire Square",{
@@ -195,9 +195,13 @@ var blackIcon = new L.Icon({
 */
 
 	var sillyObjects = L.layerGroup([marker, circle, polygon]);
-
 /*
-	function onMapClick(e) {
+	var sillyObjects = { "Marker": marker,
+						 "Circle": circle,
+						 "Polygon": polygon
+						};
+*/
+/*	function onMapClick(e) {
 		alert("You clicked the map at " + e.latlng);
 	};,
 */	
@@ -384,13 +388,13 @@ var blackIcon = new L.Icon({
 			{ "type": "Feature", "properties": { "WKT": "POINT (-5.537592 50.118798)", "Category": "Margaret's UK Homes", "name": "Penzance", "description": "Penzance", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -5.537592, 50.118798 ] } },
 			{ "type": "Feature", "properties": { "WKT": "POINT (-4.7834252 50.3403779)", "Category": "Margaret's UK Homes", "name": "St. Austell", "description": "St Austell", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.7834252, 50.3403779 ] } },
 			{ "type": "Feature", "properties": { "WKT": "POINT (-4.8245668 50.3223724)", "Category": "", "name": "`Vian's Farmhouse Trelowth", "description": "", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.8245668, 50.3223724 ] } },
-			{ "type": "Feature", "properties": { "WKT": "POINT (-4.8132343 50.3310173)", "Category": "", "name": "Milk Stop #1 - St. Mewan", "description": "", "Annotation": "Milk Stop #1", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.8132343, 50.3310173 ] } },
-			{ "type": "Feature", "properties": { "WKT": "POINT (-4.845451 50.341197)", "Category": "", "name": "Milk Stop #2 - Lanjeth", "description": "Milk Stop #2 - Lanjeth", "Annotation": "Milk Stop #2 - Lanjeth", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.845451, 50.341197 ] } },
-			{ "type": "Feature", "properties": { "WKT": "POINT (-4.859073 50.3439687)", "Category": "", "name": "Milk Stop #3 - High Street", "description": "Milk Stop #3 - High Street", "Annotation": "Milk Stop #3 - High Street", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.859073, 50.3439687 ] } },
-			{ "type": "Feature", "properties": { "WKT": "POINT (-4.8599732 50.3516472)", "Category": "", "name": "Milk Stop #4 - Carpalla", "description": "Milk Stop #4 - Carpalla", "Annotation": "Milk Stop #4 - Carpalla", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.8599732, 50.3516472 ] } },
-			{ "type": "Feature", "properties": { "WKT": "POINT (-4.861729 50.3569363)", "Category": "", "name": "Milk Stop # 5 - Foxhole", "description": "Milk Stop # 5 - Foxhole", "Annotation": "Milk Stop # 5 - Foxhole", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.861729, 50.3569363 ] } },
-			{ "type": "Feature", "properties": { "WKT": "POINT (-4.8704565 50.3701413)", "Category": "", "name": "Milk Stop # 6 - Nanpean", "description": "Milk Stop # 6 - Nanpean ", "Annotation": "Milk Stop # 6 - Nanpean ", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.8704565, 50.3701413 ] } },
-			{ "type": "Feature", "properties": { "WKT": "POINT (-4.8564904 50.3809)", "Category": "", "name": "Milk Stop #7 - Whitemoor", "description": "", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.8564904, 50.3809 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-4.8132343 50.3310173)", "Category": "", "name": "Stop #1 - St. Mewan", "description": "", "Annotation": "Milk Stop #1", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.8132343, 50.3310173 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-4.845451 50.341197)", "Category": "", "name": "Stop #2 - Lanjeth", "description": "Milk Stop #2 - Lanjeth", "Annotation": "Milk Stop #2 - Lanjeth", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.845451, 50.341197 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-4.859073 50.3439687)", "Category": "", "name": "Stop #3 - High Street", "description": "Milk Stop #3 - High Street", "Annotation": "Milk Stop #3 - High Street", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.859073, 50.3439687 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-4.8599732 50.3516472)", "Category": "", "name": "Stop #4 - Carpalla", "description": "Milk Stop #4 - Carpalla", "Annotation": "Milk Stop #4 - Carpalla", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.8599732, 50.3516472 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-4.861729 50.3569363)", "Category": "", "name": "Stop # 5 - Foxhole", "description": "Milk Stop # 5 - Foxhole", "Annotation": "Milk Stop # 5 - Foxhole", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.861729, 50.3569363 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-4.8704565 50.3701413)", "Category": "", "name": "Stop # 6 - Nanpean", "description": "Milk Stop # 6 - Nanpean ", "Annotation": "Milk Stop # 6 - Nanpean ", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.8704565, 50.3701413 ] } },
+			{ "type": "Feature", "properties": { "WKT": "POINT (-4.8564904 50.3809)", "Category": "", "name": "Stop #7 - Whitemoor", "description": "", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -4.8564904, 50.3809 ] } },
 			{ "type": "Feature", "properties": { "WKT": "POINT (-5.5684579 50.1268298)", "Category": "", "name": "Trengwainton Walled Garden", "description": "Trengwainton Walled Garden", "Annotation": "Trengwainton Walled Garden", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -5.5684579, 50.1268298 ] } },
 			{ "type": "Feature", "properties": { "WKT": "POINT (-5.4771615 50.117263)", "Category": "", "name": "St. Michael’s Mount ", "description": "", "Annotation": "", "unnamed (1)": "" }, "geometry": { "type": "Point", "coordinates": [ -5.4771615, 50.117263 ] } }
 		]
@@ -553,11 +557,11 @@ var blackIcon = new L.Icon({
 		position: 'bottomleft',
 		updateWhenIdle: true}).addTo(map);
 
-// Print the map
+/* // Print the map
 	$('.Print-Map').click(function(){
 		window.print();
 	})
-
+*/
 	var browserControl = L.control.browserPrint({
 		position: 'bottomright',
 		documentTitle: 'Map of places in Margarets Life',
