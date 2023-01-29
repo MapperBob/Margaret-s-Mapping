@@ -23,8 +23,8 @@
 			margin: 0;
 		}
 		.leaflet-container {
-			height: 1000px;
-			width: 1500px;
+			height: 700px;
+			width: 900px;
 			max-width: 100%;
 			max-height: 100%;
 		}
@@ -37,7 +37,7 @@
 <body>
 <button class="Print-Map">Print Map</button>
 
-<div id="map" style="width: 1500px; height: 1000px;"></div>
+<div id="map" style="width: 900px; height: 700px;"></div>
 
 <div id="rose">
 </div>
@@ -599,6 +599,8 @@ var blackIcon = new L.Icon({
 		window.print();
 	})
 
+/*
+
 	var browserControl = L.control.browserPrint({
 		position: 'bottomright',
 		documentTitle: 'Map of places in Margarets Life',
@@ -609,7 +611,6 @@ var blackIcon = new L.Icon({
             L.BrowserPrint.Mode.Custom("B5",{title:"Select area"})
 		]
 	}).addTo(map);
-/*
 */
 
 </script>
