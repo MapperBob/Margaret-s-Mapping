@@ -171,17 +171,17 @@ var blackIcon = new L.Icon({
 // now set up the vector layers that can be turned on or off
 //
 	var marker = L.marker([51.5005, -0.09], {icon: violetIcon}).bindPopup("<b>Hello world!</b><br>I am a popup."),
-		circle = L.circle([51.508, -0.11], {
-			color: 'red',
-			fillColor: '#f03',
-			fillOpacity: 0.5,
-			radius: 500
-		}).bindPopup("I am a circle."),
-		polygon = L.polygon([
-			[51.509, -0.08],
-			[51.503, -0.06],
-			[51.51, -0.047]
-		]).bindPopup("I am a polygon.");
+	circle = L.circle([51.508, -0.11], {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5,
+		radius: 500
+	}).bindPopup("I am a circle."),
+	polygon = L.polygon([
+		[51.509, -0.08],
+		[51.503, -0.06],
+		[51.51, -0.047]
+	]).bindPopup("I am a polygon.");
 
 // Now add a label to the marker
 	marker.bindTooltip("Empire Square",{
@@ -195,13 +195,9 @@ var blackIcon = new L.Icon({
 */
 
 	var sillyObjects = L.layerGroup([marker, circle, polygon]);
+
 /*
-	var sillyObjects = { "Marker": marker,
-						 "Circle": circle,
-						 "Polygon": polygon
-						};
-*/
-/*	function onMapClick(e) {
+	function onMapClick(e) {
 		alert("You clicked the map at " + e.latlng);
 	};,
 */	
