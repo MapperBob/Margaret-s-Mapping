@@ -24,9 +24,49 @@
 		}
 		.leaflet-container {
 			height: 700px;
-			width: 900px;
+			width: 1200px;
 			max-width: 100%;
 			max-height: 100%;
+		}
+	</style>
+
+<!--
+	<style>
+		.labelstyle {
+			all: revert;
+			color: green;
+			font-size:14px;
+			font-weight: 700;
+			fillColor: none;
+			fillOpacity: 0;
+			background-color: none;
+			border-color: none;
+			background: none;
+			border: none;
+			box-shadow: none;
+			margin: 0px;
+			cursor: none;
+			direction: 'center';
+			interactive: false;
+			fill: false;
+		}
+	</style>
+-->
+	<style>
+		.labelstyle {
+			color: red;
+			font-size:18px;
+			font-weight: bold;
+			fillColor: none;
+			fillOpacity: 0;
+			background-color: none;
+			background: none;
+			border-color: none;
+			border: none;
+			box-shadow: none;
+			margin: 0px;
+			cursor: none;
+			fill: false;
 		}
 	</style>
 
@@ -37,7 +77,7 @@
 <body>
 <button class="Print-Map">Print Map</button>
 
-<div id="map" style="width: 900px; height: 700px;"></div>
+<div id="map" style="width: 1200px; height: 700px;"></div>
 
 <div id="rose">
 </div>
@@ -541,7 +581,8 @@ var blackIcon = new L.Icon({
 				layer.bindTooltip(feature.properties.name,{
 									permanent: true,
 									direction: 'auto',
-									opacity: 0.7}).openTooltip();
+									opacity: 0.7,
+									className: 'labelstyle'}).openTooltip();
 		}
 	});
 
