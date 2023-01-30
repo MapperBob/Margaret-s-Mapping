@@ -23,12 +23,17 @@
 			margin: 0;
 		}
 		.leaflet-container {
-			height: 700px;
-			width: 1200px;
+			height: 1000px;
+			width: 1500px;
 			max-width: 100%;
 			max-height: 100%;
 		}
 	</style>
+
+<!--
+			height: 700px;
+			width: 1200px;
+-->
 
 <!--
 	<style>
@@ -77,7 +82,12 @@
 <body>
 <button class="Print-Map">Print Map</button>
 
+<div id="map" style="width: 1500px; height: 1000px;"></div>
+<!--
 <div id="map" style="width: 1200px; height: 700px;"></div>
+-->
+			height: 1000px;
+			width: 1500px;
 
 <div id="rose">
 </div>
@@ -582,7 +592,8 @@ var blackIcon = new L.Icon({
 									permanent: true,
 									direction: 'auto',
 									opacity: 0.7,
-									className: 'labelstyle'}).openTooltip();
+									className: 'labelstyle'
+									}).openTooltip();
 		}
 	});
 
@@ -626,7 +637,8 @@ var blackIcon = new L.Icon({
 	};
 
 
-	var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+	var layerControl = L.control.layers(baseMaps, overlayMaps, {
+		position: 'bottomright'}).addTo(map);
 
 	var scaleBar = L.control.scale({
 		maxWidth: 200,
@@ -634,6 +646,10 @@ var blackIcon = new L.Icon({
 		imperial: true,
 		position: 'bottomleft',
 		updateWhenIdle: true}).addTo(map);
+
+ var rose = L.control.rose('rose', {position:'topright', icon:'default', iSize:'medium', opacity:0.4});
+ 
+ rose.addTo(map)
 
 // Print the map
 	$('.Print-Map').click(function(){
